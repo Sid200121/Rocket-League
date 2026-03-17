@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rocket Rumble — 2D Arena</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="menu-screen" class="screen active">
+    <div class="menu-bg"></div>
+    <div class="menu-content">
+      <div class="logo">
+        <span class="logo-rocket">🚀</span>
+        <h1>ROCKET<br/><span>RUMBLE</span></h1>
+        <p class="tagline">2D ARENA CHAOS</p>
+      </div>
+      <div class="menu-options">
+        <button class="btn-primary" id="btn-play-1v1">⚔️ 1v1 vs Bot</button>
+        <button class="btn-primary" id="btn-play-2v2">🔥 2v2 (You + Bot vs 2 Bots)</button>
+        <button class="btn-primary" id="btn-play-3v3">💥 3v3 (You + 2 Bots vs 3 Bots)</button>
+      </div>
+      <div class="difficulty-row">
+        <span>BOT DIFFICULTY:</span>
+        <div class="diff-btns">
+          <button class="diff-btn active" data-diff="easy">EASY</button>
+          <button class="diff-btn" data-diff="medium">MEDIUM</button>
+          <button class="diff-btn" data-diff="hard">HARD</button>
+        </div>
+      </div>
+      <div class="controls-hint">
+        <span>WASD / Arrow Keys · SPACE = Boost · Z = Jump</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="game-screen" class="screen">
+    <div id="hud">
+      <div class="score-panel blue-panel">
+        <span class="team-label">BLUE</span>
+        <span class="score" id="score-blue">0</span>
+      </div>
+      <div class="hud-center">
+        <div id="timer">5:00</div>
+        <div id="boost-bar-wrap">
+          <div id="boost-bar"></div>
+          <span id="boost-label">BOOST</span>
+        </div>
+      </div>
+      <div class="score-panel orange-panel">
+        <span class="score" id="score-orange">0</span>
+        <span class="team-label">ORANGE</span>
+      </div>
+    </div>
+    <canvas id="game-canvas"></canvas>
+    <button id="btn-pause" title="Pause">⏸</button>
+  </div>
+
+  <div id="pause-screen" class="screen overlay">
+    <div class="overlay-box">
+      <h2>PAUSED</h2>
+      <button class="btn-primary" id="btn-resume">▶ RESUME</button>
+      <button class="btn-primary" id="btn-menu-from-pause">🏠 MAIN MENU</button>
+    </div>
+  </div>
+
+  <div id="goal-screen" class="screen overlay hidden">
+    <div class="goal-flash">
+      <div class="goal-text" id="goal-text">GOAL!</div>
+      <div class="goal-team" id="goal-team">BLUE SCORES!</div>
+    </div>
+  </div>
+
+  <div id="end-screen" class="screen overlay hidden">
+    <div class="overlay-box end-box">
+      <h2 id="end-title">GAME OVER</h2>
+      <div class="final-score">
+        <span class="blue-text" id="end-blue">0</span>
+        <span class="sep">—</span>
+        <span class="orange-text" id="end-orange">0</span>
+      </div>
+      <p id="end-winner"></p>
+      <button class="btn-primary" id="btn-play-again">🔄 PLAY AGAIN</button>
+      <button class="btn-primary" id="btn-menu-from-end">🏠 MAIN MENU</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
